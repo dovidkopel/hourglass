@@ -39,6 +39,7 @@ public class Test1 {
 		grid.init();
 
 		List<ShapePath> shapes = FixedHourGlass9ShapeExtractor.getShapes(grid);
+		System.out.println("There are "+shapes.size()+" shapes");
 		for(ShapePath s : shapes) {
 			System.out.println(s);
 		}

@@ -6,6 +6,6 @@ public class NumericGrid extends Grid<Integer> {
 	}
 
 	public Integer getDefaultValue() {
-		return 0;
+		return null;
 	}
 }

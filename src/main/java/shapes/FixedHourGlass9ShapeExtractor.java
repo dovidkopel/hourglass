@@ -7,11 +7,10 @@ import java.util.stream.Collectors;
 public class FixedHourGlass9ShapeExtractor {
 	public static List<ShapePath> getShapes(NumericGrid grid) {
 		List<ShapePath> shapes = new ArrayList();
-		for(int x=0; x < grid.getWidth(); x++) {
-			for(int y=0; y < grid.getHeight(); y++) {
+		for(int y=0; y < grid.getHeight(); y++) {
+			for(int x=0; x < grid.getWidth(); x++) {
 				ShapePath aa = new FixedHourGlass9Shape(grid, new Coordinate(x, y));
 				if(aa != null && aa.getCoordinates().size() == 7 && aa.getCoordinates().stream().allMatch(c -> c.getValue() != null)) {
-
 					shapes.add(aa);
 				}
 			}

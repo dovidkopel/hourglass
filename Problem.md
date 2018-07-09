@@ -1,3 +1,5 @@
+[Original problem](https://www.hackerrank.com/challenges/2d-array/problem?h_l=playlist&slugs%5B%5D=interview&slugs%5B%5D=interview-preparation-kit&slugs%5B%5D=arrays)
+
 Given a  2D Array, :
 ```
 1 1 1 0 0 0

@@ -50,52 +50,32 @@ public class FixedHourGlass9Shape implements ShapePath, Serializable {
 	// Get the first three elements on one line
 	// Get the next element on one line
 	// Get the last three elements on one line
-	Coordinate[] getLine(int lineNumber) {
-		Coordinate[] tmp = new Coordinate[3];
-
-		switch(lineNumber) {
-			case 0:
-				for(int x=0; x <= 2; x++) {
-					tmp[x] = cs.get(x);
-				}
-				break;
-			case 1:
-				tmp[0] = cs.get(4);
-				break;
-			case 2:
-				for(int x=0; x <= 2; x++) {
-					tmp[x] = cs.get(x+4);
-				}
-				break;
-		}
-		return tmp;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		if(cs.size() == 7 && cs.stream().allMatch(c -> c.getValue() != null)) {
-			int[] lines = new int[]{0, 1, 2};
-			for(int line : lines) {
-				if(line == 1) {
-					sb.append("  ");
-				}
-				for(Coordinate c : getLine(line)) {
-					if(c != null) {
-						Object v = c.getValue();
 
-						if(v != null) {
-							sb.append(v);
-						}
+		// This is to protect the shape output
+		if(cs.size() == 7 && cs.stream().allMatch(c -> c.getValue() != null)) {
+			int count = 0;
+			for (Coordinate c : cs) {
+				if (c != null) {
+					if(count == 3) {
+						sb.append("  ");
+					}
+					Object v = c.getValue();
+
+					if (v != null) {
+						sb.append(v);
+						sb.append(" ");
+					}
+
+					if(count == 2 || count == 3) {
+						sb.append("\n");
 					}
 				}
-				if(lines.length > 1) {
-					sb.append("  ");
-				}
-				if(line == 0 || line == 1) {
-					sb.append("\n");
-				}
+				count++;
 			}
+			sb.append("\n");
 		}
 
 		return sb.toString();
