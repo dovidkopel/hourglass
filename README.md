@@ -1,5 +1,8 @@
 [Original problem](https://www.hackerrank.com/challenges/2d-array/problem?h_l=playlist&slugs%5B%5D=interview&slugs%5B%5D=interview-preparation-kit&slugs%5B%5D=arrays)
 
+# Note:
+I approached this from the way I expect someone with a great deal of experience designing complex enterprise-grade systems. It is modular in design and allows for changes in the business needs. The actual "shape" is isolated so that this system can be used to detect other similar problems with different parameters. 
+
 Given a  2D Array, :
 ```
 1 1 1 0 0 0
